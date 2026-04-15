@@ -4,7 +4,7 @@ import { ContentLijst } from "@/components/ContentLijst";
 import { getUserProfile } from "@/lib/auth";
 import { brainTrainingOefeningen } from "@/lib/seed-data";
 
-export const metadata = { title: "Brain Training — HerstelBrein" };
+export const metadata = { title: "Brain Training — BreinVrij" };
 
 export default async function BrainTrainingPage() {
   const profile = await getUserProfile();

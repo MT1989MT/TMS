@@ -67,7 +67,7 @@ const succesverhalen = [
     naam: "Marieke, 42",
     pijntype: "Chronische rugpijn — 6 jaar",
     quote:
-      "Na 6 jaar van fysiotherapie, pijnstillers en drie MRI's was ik het spoor bijster. Binnen 8 weken HerstelBrein was ik 80% pijnvrij. Ik kon niet geloven dat dit mogelijk was.",
+      "Na 6 jaar van fysiotherapie, pijnstillers en drie MRI's was ik het spoor bijster. Binnen 8 weken BreinVrij was ik 80% pijnvrij. Ik kon niet geloven dat dit mogelijk was.",
     sterren: 5,
   },
   {
@@ -140,7 +140,7 @@ function NavBar() {
           <div className="w-8 h-8 rounded-[10px] bg-[#1B7A6E] flex items-center justify-center">
             <Brain className="w-4 h-4 text-white" />
           </div>
-          <span className="font-heading text-[#2D2A26] text-lg">HerstelBrein</span>
+          <span className="font-heading text-[#2D2A26] text-lg">BreinVrij</span>
         </Link>
         <div className="flex items-center gap-3">
           <Link
@@ -177,7 +177,7 @@ function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl text-[#6B6560] mb-10 max-w-2xl mx-auto font-body leading-relaxed text-balance">
-          HerstelBrein begeleidt je door een 90-dagen herstelprogramma voor chronische pijn,
+          BreinVrij begeleidt je door een 90-dagen herstelprogramma voor chronische pijn,
           gebaseerd op de wetenschap van Dr. John Sarno, Pain Reprocessing Therapy en JournalSpeak.
         </p>
 
@@ -265,7 +265,7 @@ function WetenschapSection() {
             </h2>
             <p className="text-white/80 font-body mb-8 leading-relaxed">
               De Boulder Back Pain Study (JAMA Psychiatry, 2021) is de eerste gerandomiseerde
-              gecontroleerde studie naar Pain Reprocessing Therapy — de methode achter HerstelBrein.
+              gecontroleerde studie naar Pain Reprocessing Therapy — de methode achter BreinVrij.
             </p>
             <Link href="/zelftest">
               <Button
@@ -500,7 +500,7 @@ function FooterSection() {
             <div className="w-8 h-8 rounded-[10px] bg-white/10 flex items-center justify-center">
               <Brain className="w-4 h-4 text-white" />
             </div>
-            <span className="font-heading text-white text-lg">HerstelBrein</span>
+            <span className="font-heading text-white text-lg">BreinVrij</span>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {[
@@ -524,7 +524,7 @@ function FooterSection() {
         <div className="border-t border-white/10 pt-6">
           <Disclaimer className="text-white/50 max-w-3xl" />
           <p className="text-xs text-white/40 mt-3 font-body">
-            © {new Date().getFullYear()} HerstelBrein. Alle rechten voorbehouden.
+            © {new Date().getFullYear()} BreinVrij. Alle rechten voorbehouden.
           </p>
         </div>
       </div>

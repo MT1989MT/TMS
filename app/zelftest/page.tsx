@@ -32,7 +32,7 @@ function ZelftestHeader({
             <div className="w-7 h-7 rounded-[8px] bg-[#1B7A6E] flex items-center justify-center">
               <Brain className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="font-heading text-[#2D2A26] text-base">HerstelBrein</span>
+            <span className="font-heading text-[#2D2A26] text-base">BreinVrij</span>
           </Link>
 
           <div className="flex items-center gap-3">

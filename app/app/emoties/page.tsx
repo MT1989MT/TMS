@@ -6,7 +6,7 @@ import { EmotieHistorie } from "./EmotieHistorie";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { getUserProfile } from "@/lib/auth";
 
-export const metadata = { title: "Emotie Check-in — HerstelBrein" };
+export const metadata = { title: "Emotie Check-in — BreinVrij" };
 
 const PIJN_REACTIE_LABELS: Record<string, string> = {
   angst:           "Angst / paniek",

@@ -181,7 +181,7 @@ export default function AanmeldenPage() {
                 <Brain className="w-3.5 h-3.5 text-white" />
               </div>
               <span className="font-heading text-[#2D2A26] text-base">
-                HerstelBrein
+                BreinVrij
               </span>
             </div>
           </Link>
@@ -193,7 +193,7 @@ export default function AanmeldenPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8 animate-fade-in-up">
             <h1 className="text-3xl font-heading text-[#2D2A26] mb-2">
-              Welkom bij HerstelBrein
+              Welkom bij BreinVrij
             </h1>
             <p className="text-[#6B6560] font-body">
               Begin jouw weg naar een pijnvrij leven

@@ -7,7 +7,7 @@ import { ReminderTijdForm } from "./ReminderTijdForm";
 import { getUserProfile } from "@/lib/auth";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 
-export const metadata = { title: "Profiel — HerstelBrein" };
+export const metadata = { title: "Profiel — BreinVrij" };
 
 const ABONNEMENT_LABELS: Record<string, { label: string; kleur: string; badge: "teal" | "gold" | "neutral" }> = {
   free:     { label: "Gratis",      kleur: "text-[#6B6560]",  badge: "neutral" },
@@ -186,7 +186,7 @@ export default async function ProfielPage() {
         <UitlogButton />
 
         <p className="text-center text-[10px] text-[#B8B2A8] font-body pb-2">
-          HerstelBrein v1.0 · Gemaakt met zorg
+          BreinVrij v1.0 · Gemaakt met zorg
         </p>
 
         <div className="h-4" />

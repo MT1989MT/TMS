@@ -6,7 +6,7 @@ import { dagelijkseHerinneringen } from "@/lib/seed-data";
 import { HerinnernigKaart } from "./HerinnernigKaart";
 
 export const metadata = {
-  title: "12 Herinneringen — HerstelBrein",
+  title: "12 Herinneringen — BreinVrij",
 };
 
 export default function HerinneringenPage() {

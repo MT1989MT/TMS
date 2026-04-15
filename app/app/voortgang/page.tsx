@@ -8,7 +8,7 @@ import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { getUserProfile } from "@/lib/auth";
 import { getBehaaldeMijlpalen } from "@/lib/journal-data";
 
-export const metadata = { title: "Voortgang — HerstelBrein" };
+export const metadata = { title: "Voortgang — BreinVrij" };
 
 // ─── Kalender Heatmap ─────────────────────────────────────────────────────────
 

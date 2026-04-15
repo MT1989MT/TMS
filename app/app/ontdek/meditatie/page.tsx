@@ -4,7 +4,7 @@ import { ContentLijst } from "@/components/ContentLijst";
 import { getUserProfile } from "@/lib/auth";
 import { meditaties } from "@/lib/seed-data";
 
-export const metadata = { title: "Meditaties — HerstelBrein" };
+export const metadata = { title: "Meditaties — BreinVrij" };
 
 export default async function MeditatiesPage() {
   const profile = await getUserProfile();

@@ -4,7 +4,7 @@ import { ContentLijst } from "@/components/ContentLijst";
 import { getUserProfile } from "@/lib/auth";
 import { educatieLessen } from "@/lib/seed-data";
 
-export const metadata = { title: "Educatielessen — HerstelBrein" };
+export const metadata = { title: "Educatielessen — BreinVrij" };
 
 export default async function EducatiePage() {
   const profile = await getUserProfile();

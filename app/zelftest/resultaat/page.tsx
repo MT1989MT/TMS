@@ -226,7 +226,7 @@ function ResultaatContent() {
   const [gedeeld, setGedeeld] = useState(false);
 
   const handleDelen = async () => {
-    const tekst = `Ik heb de TMS zelftest gedaan op HerstelBrein en scoorde ${score}/${MAX_SCORE}. Ontdek of jouw chronische pijn TMS kan zijn!`;
+    const tekst = `Ik heb de TMS zelftest gedaan op BreinVrij en scoorde ${score}/${MAX_SCORE}. Ontdek of jouw chronische pijn TMS kan zijn!`;
     if (navigator.share) {
       try {
         await navigator.share({ title: "Mijn TMS Zelftest Resultaat", text: tekst });
@@ -250,7 +250,7 @@ function ResultaatContent() {
             <div className="w-7 h-7 rounded-[8px] bg-[#1B7A6E] flex items-center justify-center">
               <Brain className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="font-heading text-[#2D2A26] text-base">HerstelBrein</span>
+            <span className="font-heading text-[#2D2A26] text-base">BreinVrij</span>
           </Link>
           <Link href="/zelftest">
             <Button variant="ghost" size="sm" className="flex items-center gap-1 text-[#6B6560]">
@@ -357,7 +357,7 @@ function ResultaatContent() {
             href="/"
             className="text-sm text-[#6B6560] hover:text-[#2D2A26] transition-colors font-body"
           >
-            ← Terug naar HerstelBrein
+            ← Terug naar BreinVrij
           </Link>
         </div>
       </main>

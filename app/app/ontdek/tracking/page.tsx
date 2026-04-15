@@ -4,7 +4,7 @@ import { ContentLijst } from "@/components/ContentLijst";
 import { getUserProfile } from "@/lib/auth";
 import { somaticTrackingOefeningen } from "@/lib/seed-data";
 
-export const metadata = { title: "Somatic Tracking — HerstelBrein" };
+export const metadata = { title: "Somatic Tracking — BreinVrij" };
 
 export default async function TrackingPage() {
   const profile = await getUserProfile();

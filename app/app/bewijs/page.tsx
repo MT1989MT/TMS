@@ -7,7 +7,7 @@ import { BewijsItem } from "./BewijsItem";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { getUserProfile } from "@/lib/auth";
 
-export const metadata = { title: "Bewijs-lijst — HerstelBrein" };
+export const metadata = { title: "Bewijs-lijst — BreinVrij" };
 
 const categorieCount = (items: { category: string | null }[], cat: string) =>
   items.filter((i) => i.category === cat).length;

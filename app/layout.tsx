@@ -16,12 +16,12 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "HerstelBrein — Herstel van chronische pijn",
+  title: "BreinVrij — Herstel van chronische pijn",
   description:
     "Een 90-dagen herstelprogramma voor mensen met chronische pijn veroorzaakt door TMS. Gebaseerd op de wetenschap van Dr. John Sarno, Pain Reprocessing Therapy en JournalSpeak.",
   keywords: ["TMS", "chronische pijn", "herstel", "Dr. Sarno", "Pain Reprocessing Therapy"],
   openGraph: {
-    title: "HerstelBrein — Herstel van chronische pijn",
+    title: "BreinVrij — Herstel van chronische pijn",
     description: "Jouw pijn is echt. En er is een weg naar herstel.",
     type: "website",
     locale: "nl_NL",

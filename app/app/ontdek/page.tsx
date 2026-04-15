@@ -18,7 +18,7 @@ import {
   brainTrainingOefeningen,
 } from "@/lib/seed-data";
 
-export const metadata = { title: "Ontdek — HerstelBrein" };
+export const metadata = { title: "Ontdek — BreinVrij" };
 
 const categorieen = [
   {

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
   const dag = parseInt(dagStr, 10);
   const data = getProgrammaDag(dag);
   return {
-    title: data ? `Dag ${dag}: ${data.titel} — HerstelBrein` : "Dag niet gevonden",
+    title: data ? `Dag ${dag}: ${data.titel} — BreinVrij` : "Dag niet gevonden",
   };
 }
 

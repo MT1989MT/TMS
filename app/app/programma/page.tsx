@@ -8,7 +8,7 @@ import {
   type ProgrammaFase,
 } from "@/lib/seed-data";
 
-export const metadata = { title: "90-Dagenprogramma — HerstelBrein" };
+export const metadata = { title: "90-Dagenprogramma — BreinVrij" };
 
 // Stub entries for days 31-90 (content to be built in later phases)
 function getAllDagen() {
