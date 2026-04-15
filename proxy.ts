@@ -3,6 +3,7 @@ import { createServerClient } from "@supabase/ssr";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
 
 // Routes that require authentication
 const PROTECTED_PREFIXES = ["/app"];
@@ -12,6 +13,9 @@ const AUTH_ROUTES = ["/aanmelden"];
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   let response = NextResponse.next({ request });
+
+  // Demo mode: skip alle auth-logica
+  if (DEMO_MODE) return response;
 
   // Create Supabase client wired to request/response cookies
   const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {

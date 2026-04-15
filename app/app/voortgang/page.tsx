@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/Progress";
 import { StreakDisplay } from "@/components/StreakDisplay";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { getUserProfile } from "@/lib/auth";
+import { isDemoMode, DEMO_STATS } from "@/lib/demo";
 import { getBehaaldeMijlpalen } from "@/lib/journal-data";
 
 export const metadata = { title: "Voortgang — BreinVrij" };
@@ -105,30 +106,42 @@ export default async function VoortgangPage() {
   const supabase = await createSupabaseServerClient();
 
   // Stats ophalen
-  const { data: statsData } = await supabase
-    .from("user_stats")
-    .select("*")
-    .eq("user_id", profile!.id)
-    .single();
+  let stats = DEMO_STATS;
+  let activeDagen = new Set<string>();
 
-  const stats = statsData ?? {
-    current_streak: 0,
-    longest_streak: 0,
-    total_exercises: 0,
-    total_journal_sessions: 0,
-    total_minutes: 0,
-    last_activity_date: null,
-  };
+  if (!isDemoMode()) {
+    const { data: statsData } = await supabase
+      .from("user_stats")
+      .select("*")
+      .eq("user_id", profile!.id)
+      .single();
 
-  // Actieve dagen (voor heatmap)
-  const { data: checkIns } = await supabase
-    .from("emotion_checkins")
-    .select("date")
-    .eq("user_id", profile!.id)
-    .order("date", { ascending: false })
-    .limit(90);
+    stats = statsData ?? {
+      current_streak: 0,
+      longest_streak: 0,
+      total_exercises: 0,
+      total_journal_sessions: 0,
+      total_minutes: 0,
+      last_activity_date: null,
+    };
 
-  const activeDagen = new Set((checkIns ?? []).map((c) => c.date as string));
+    const { data: checkIns } = await supabase
+      .from("emotion_checkins")
+      .select("date")
+      .eq("user_id", profile!.id)
+      .order("date", { ascending: false })
+      .limit(90);
+
+    activeDagen = new Set((checkIns ?? []).map((c) => c.date as string));
+  } else {
+    // Demo: genereer wat nep actieve dagen voor de heatmap
+    const today = new Date();
+    for (let i = 0; i < 40; i += Math.ceil(Math.random() * 3)) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - i);
+      activeDagen.add(d.toISOString().split("T")[0]);
+    }
+  }
 
   // Mijlpalen
   const huidigeDag = profile?.current_day ?? 1;

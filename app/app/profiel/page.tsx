@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { UitlogButton } from "./UitlogButton";
 import { ReminderTijdForm } from "./ReminderTijdForm";
 import { getUserProfile } from "@/lib/auth";
+import { isDemoMode, DEMO_STATS } from "@/lib/demo";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export const metadata = { title: "Profiel — BreinVrij" };
@@ -28,13 +29,16 @@ export default async function ProfielPage() {
   const profile = await getUserProfile();
   const supabase = await createSupabaseServerClient();
 
-  const { data: statsData } = await supabase
-    .from("user_stats")
-    .select("total_exercises, total_journal_sessions, current_streak")
-    .eq("user_id", profile!.id)
-    .single();
+  let stats = { total_exercises: DEMO_STATS.total_exercises, total_journal_sessions: DEMO_STATS.total_journal_sessions, current_streak: DEMO_STATS.current_streak };
 
-  const stats = statsData ?? { total_exercises: 0, total_journal_sessions: 0, current_streak: 0 };
+  if (!isDemoMode()) {
+    const { data: statsData } = await supabase
+      .from("user_stats")
+      .select("total_exercises, total_journal_sessions, current_streak")
+      .eq("user_id", profile!.id)
+      .single();
+    stats = statsData ?? { total_exercises: 0, total_journal_sessions: 0, current_streak: 0 };
+  }
   const status = profile?.subscription_status ?? "free";
   const abonnementMeta = ABONNEMENT_LABELS[status] ?? ABONNEMENT_LABELS.free;
   const isPro = status === "pro" || status === "lifetime";
