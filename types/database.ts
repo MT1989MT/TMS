@@ -23,8 +23,33 @@ export interface Database {
           stripe_customer_id: string | null;
           created_at: string;
         };
-        Insert: Omit<Database["public"]["Tables"]["profiles"]["Row"], "created_at">;
-        Update: Partial<Database["public"]["Tables"]["profiles"]["Insert"]>;
+        Insert: {
+          id: string;
+          display_name?: string | null;
+          pain_type?: string[] | null;
+          pain_duration?: string | null;
+          tms_score?: number | null;
+          current_day?: number;
+          onboarding_completed?: boolean;
+          reminder_time?: string | null;
+          subscription_status?: string;
+          stripe_customer_id?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          display_name?: string | null;
+          pain_type?: string[] | null;
+          pain_duration?: string | null;
+          tms_score?: number | null;
+          current_day?: number;
+          onboarding_completed?: boolean;
+          reminder_time?: string | null;
+          subscription_status?: string;
+          stripe_customer_id?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       selftest_questions: {
         Row: {
@@ -33,8 +58,19 @@ export interface Database {
           sort_order: number | null;
           weight: number;
         };
-        Insert: Omit<Database["public"]["Tables"]["selftest_questions"]["Row"], "id">;
-        Update: Partial<Database["public"]["Tables"]["selftest_questions"]["Insert"]>;
+        Insert: {
+          id?: number;
+          question_text: string;
+          sort_order?: number | null;
+          weight?: number;
+        };
+        Update: {
+          id?: number;
+          question_text?: string;
+          sort_order?: number | null;
+          weight?: number;
+        };
+        Relationships: [];
       };
       selftest_answers: {
         Row: {
@@ -43,8 +79,19 @@ export interface Database {
           answer_text: string;
           score: number;
         };
-        Insert: Omit<Database["public"]["Tables"]["selftest_answers"]["Row"], "id">;
-        Update: Partial<Database["public"]["Tables"]["selftest_answers"]["Insert"]>;
+        Insert: {
+          id?: number;
+          question_id: number;
+          answer_text: string;
+          score?: number;
+        };
+        Update: {
+          id?: number;
+          question_id?: number;
+          answer_text?: string;
+          score?: number;
+        };
+        Relationships: [];
       };
       program_days: {
         Row: {
@@ -58,8 +105,29 @@ export interface Database {
           journal_prompt: string | null;
           reminder_text: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["program_days"]["Row"], "id">;
-        Update: Partial<Database["public"]["Tables"]["program_days"]["Insert"]>;
+        Insert: {
+          id?: number;
+          day_number: number;
+          phase: string;
+          title: string;
+          description?: string | null;
+          education_id?: number | null;
+          exercise_id?: number | null;
+          journal_prompt?: string | null;
+          reminder_text?: string | null;
+        };
+        Update: {
+          id?: number;
+          day_number?: number;
+          phase?: string;
+          title?: string;
+          description?: string | null;
+          education_id?: number | null;
+          exercise_id?: number | null;
+          journal_prompt?: string | null;
+          reminder_text?: string | null;
+        };
+        Relationships: [];
       };
       content: {
         Row: {
@@ -75,8 +143,33 @@ export interface Database {
           is_free: boolean;
           created_at: string;
         };
-        Insert: Omit<Database["public"]["Tables"]["content"]["Row"], "id" | "created_at">;
-        Update: Partial<Database["public"]["Tables"]["content"]["Insert"]>;
+        Insert: {
+          id?: number;
+          type: string;
+          title: string;
+          description?: string | null;
+          duration_minutes?: number | null;
+          audio_url?: string | null;
+          transcript?: string | null;
+          phase?: string | null;
+          sort_order?: number | null;
+          is_free?: boolean;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          type?: string;
+          title?: string;
+          description?: string | null;
+          duration_minutes?: number | null;
+          audio_url?: string | null;
+          transcript?: string | null;
+          phase?: string | null;
+          sort_order?: number | null;
+          is_free?: boolean;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       daily_reminders: {
         Row: {
@@ -86,8 +179,21 @@ export interface Database {
           audio_url: string | null;
           explanation: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["daily_reminders"]["Row"], "id">;
-        Update: Partial<Database["public"]["Tables"]["daily_reminders"]["Insert"]>;
+        Insert: {
+          id?: number;
+          reminder_number: number;
+          text_nl: string;
+          audio_url?: string | null;
+          explanation?: string | null;
+        };
+        Update: {
+          id?: number;
+          reminder_number?: number;
+          text_nl?: string;
+          audio_url?: string | null;
+          explanation?: string | null;
+        };
+        Relationships: [];
       };
       user_progress: {
         Row: {
@@ -97,8 +203,21 @@ export interface Database {
           completed_at: string;
           is_favorite: boolean;
         };
-        Insert: Omit<Database["public"]["Tables"]["user_progress"]["Row"], "id" | "completed_at">;
-        Update: Partial<Database["public"]["Tables"]["user_progress"]["Insert"]>;
+        Insert: {
+          id?: number;
+          user_id: string;
+          content_id: number;
+          completed_at?: string;
+          is_favorite?: boolean;
+        };
+        Update: {
+          id?: number;
+          user_id?: string;
+          content_id?: number;
+          completed_at?: string;
+          is_favorite?: boolean;
+        };
+        Relationships: [];
       };
       evidence_list: {
         Row: {
@@ -108,8 +227,21 @@ export interface Database {
           category: string | null;
           created_at: string;
         };
-        Insert: Omit<Database["public"]["Tables"]["evidence_list"]["Row"], "id" | "created_at">;
-        Update: Partial<Database["public"]["Tables"]["evidence_list"]["Insert"]>;
+        Insert: {
+          id?: number;
+          user_id: string;
+          text: string;
+          category?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          user_id?: string;
+          text?: string;
+          category?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       emotion_checkins: {
         Row: {
@@ -122,8 +254,27 @@ export interface Database {
           notes: string | null;
           created_at: string;
         };
-        Insert: Omit<Database["public"]["Tables"]["emotion_checkins"]["Row"], "id" | "created_at">;
-        Update: Partial<Database["public"]["Tables"]["emotion_checkins"]["Insert"]>;
+        Insert: {
+          id?: number;
+          user_id: string;
+          date: string;
+          emotions?: string[] | null;
+          pain_reaction?: string | null;
+          journaled?: boolean;
+          notes?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          user_id?: string;
+          date?: string;
+          emotions?: string[] | null;
+          pain_reaction?: string | null;
+          journaled?: boolean;
+          notes?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       user_stats: {
         Row: {
@@ -136,9 +287,40 @@ export interface Database {
           total_minutes: number;
           last_activity_date: string | null;
         };
-        Insert: Omit<Database["public"]["Tables"]["user_stats"]["Row"], "id">;
-        Update: Partial<Database["public"]["Tables"]["user_stats"]["Insert"]>;
+        Insert: {
+          id?: number;
+          user_id: string;
+          current_streak?: number;
+          longest_streak?: number;
+          total_exercises?: number;
+          total_journal_sessions?: number;
+          total_minutes?: number;
+          last_activity_date?: string | null;
+        };
+        Update: {
+          id?: number;
+          user_id?: string;
+          current_streak?: number;
+          longest_streak?: number;
+          total_exercises?: number;
+          total_journal_sessions?: number;
+          total_minutes?: number;
+          last_activity_date?: string | null;
+        };
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: {
+      increment_user_stats: {
+        Args: {
+          p_user_id: string;
+          p_minutes: number;
+        };
+        Returns: undefined;
+      };
+    };
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }
